@@ -8,6 +8,37 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+      
+      <!-- Scripts for loading resources -->
+          <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js">
+          </script>
+      
+        <script type="text/javascript" src = "js/dynamicpage.js"> 
+        </script>
+      
+        <script>
+            
+          $(function(){
+              var relPath = GetPath();
+              $("#postHeadOne").load(relPath + "/Resources/blog-posts/most-recently-added/head-one.html");
+          });
+            
+          $(function(){
+              var relPath = GetPath();
+              $("#postHeadTwo").load(relPath + "/Resources/blog-posts/most-recently-added/head-two.html");
+          });
+            
+          $(function(){
+              var relPath = GetPath();
+              $("#postHeadThree").load(relPath + "/Resources/blog-posts/most-recently-added/head-three.html");
+          });
+            
+          $(function(){
+              var relPath = GetPath();
+              $("#postHeadFour").load(relPath + "/Resources/blog-posts/most-recently-added/head-four.html");
+          });
+              </script>
+      
     <title>Kody C. Kendall | Blog </title>
 
     <!-- Bootstrap core CSS -->
@@ -97,7 +128,9 @@
           <div>
             Past Posts: 
           </div>
-            
+         
+            <div id = "postHeadOne"> </div>
+<!--
           <div class="post-preview">
             <a href="Why%20Internet%20Marketing%20Strategy.html">
               <img src="img/online_marking_header.jpeg" class="img-fluid"/>
@@ -112,8 +145,13 @@
               <a href="#">Kody C. Kendall</a>
               on October 7, 2017</p>
           </div>
+-->
 
             <hr>
+                
+                <div id = "postHeadTwo"></div>
+                    
+<!--
             <div class="post-preview">
             <a href="Why%20Write.html">
               <img src="img/whywriteheader.jpeg" class="img-fluid"/>
@@ -129,12 +167,16 @@
               on September 24, 2017</p>
           </div>
             
+-->
           <hr>
           
           <hr>
             
+          <div id = "postHeadTwo"> </div>
+                    
+<!--
           <div class="post-preview">
-            <a href="post.html">
+          <div class = "postHeadOne"/div>  <a href="post.html">
               <h2 class="post-title">
                 Science has not yet mastered prophecy
               </h2>
@@ -147,8 +189,12 @@
               on August 24, 2017</p>
           </div>
             
+-->
           <hr>
-            
+          
+          <div id = "postHeadThree"></div> 
+              
+<!--
           <div class="post-preview">
             <a href="post.html">
               <h2 class="post-title">
@@ -164,6 +210,7 @@
           </div>
           
             <hr>
+-->
             
             <!-- Pager -->
           <div class="clearfix">
