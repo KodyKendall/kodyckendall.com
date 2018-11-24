@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<table id="assigned">
+	</table>
+</body>
+<script>
+	var assigned_members = {};
+	family_members = ["Kody", "Kason", "Kandis", "Dawson", "Katie", "Melanie"];
+	family_members2 = ["Kody", "Kason", "Kandis", "Dawson", "Katie", "Melanie"];
+
+	for (var member_index = 0; member_index < family_members.length; member_index++){		
+		var member_to_assign = family_members[member_index];		
+		var unassignable_index = find_index(member_to_assign, family_members2);		
+		if (unassignable_index==-1)
+			unassignable_index = 1000;
+		var assigned_index = get_random_index(unassignable_index, family_members2.length);		
+		var assigned_member = family_members2[assigned_index]
+		assigned_members[member_to_assign] = assigned_member;
+		family_members2 = family_members2.filter(e => e !== assigned_member);
+		console.log(member_to_assign + " was assigned to: " + assigned_member);
+	}
+
+	console.log("Done");
+	fill_table("assigned", assigned_members);
+
+	function find_index(element, list){
+		for (var i = 0; i < list.length; i++){
+			if(list[i] == element)
+				return i;		
+		}
+	}
+
+	function get_random_index(exclude, max_index){
+		if (exclude == max_index)
+			return max_index;
+		var random = Math.floor(Math.random() * Math.floor(max_index));
+		if (random == exclude)
+			return get_random_index(exclude, max_index);
+		else 
+			return random;
+	}
+
+	function fill_table(table_id, members){
+
+		for (var key in members){
+			add_table_row(table_id, key, members[key])
+		}
+
+
+	}
+
+	function add_table_row(table_id, item1, item2){
+		// Find a <table> element with id="myTable":
+		var table = document.getElementById(table_id);
+
+		// Create an empty <tr> element and add it to the 1st position of the table:
+		var row = table.insertRow(0);
+
+		// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+
+		// Add some text to the new cells:
+		cell1.innerHTML = item1;
+		cell2.innerHTML = item2;
+	}
+
+</script>
+</html>
